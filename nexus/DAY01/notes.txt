@@ -337,3 +337,28 @@ sudo systemctl status nexus
 
 Restarted via systemd → Nexus is now active (running) ✅
 
+------------------------------------------------------------------------------------------
+
+🔧 Steps to change Nexus port from 8081 → 8085
+Edit the Nexus properties file Open:
+sudo vi /opt/sonatype-work/nexus3/etc/nexus.properties    :((If this file doesn’t exist yet, you can also edit                                                                               /opt/nexus/etc/nexus-default.properties)
+Find the line:
+application-port=8081
+Change it to:
+application-port=8085
+
+You can also change the host if needed:
+application-host=0.0.0.0
+Save and exit (:wq).
+
+
+Restart Nexus
+sudo systemctl restart nexus
+
+Verify it’s listening on the new port
+sudo lsof -i -P -n | grep 8085
+
+Access in browser
+http://<your-ec2-public-ip>:8085
+
+
