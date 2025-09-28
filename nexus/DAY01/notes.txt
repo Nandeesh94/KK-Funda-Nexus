@@ -22,6 +22,38 @@ Introduction
 --> It is java based repository, Means they developed using JAVA.
 
 
+-----------------------------------------------------------------------------------------------------------
+
+🚦 Recap of what you fixed
+1.Corrected run_as_user="nexus" in nexus.rc ✅
+
+2.Fixed ownership of /opt/nexus and /opt/sonatype-work ✅
+
+3.Reduced heap size in nexus.vmoptions to fit your t2.medium ✅
+Recommended nexus.vmoptions for t2.medium (4 GB RAM)
+Edit /opt/nexus/bin/nexus.vmoptions and change the first two lines to:
+if we have 4Gb Ram: update below confg
+-Xms1024m
+-Xmx2048m
+
+4.Created missing nexus3/log and nexus3/tmp directories ✅
+  (Create required directories)
+sudo mkdir -p /opt/sonatype-work/nexus3/log
+sudo mkdir -p /opt/sonatype-work/nexus3/tmp
+sudo chown -R nexus:nexus /opt/sonatype-work
+
+(Restart Nexus):
+sudo systemctl daemon-reload
+sudo systemctl restart nexus
+sudo systemctl status nexus
+ 
+Restarted via systemd → Nexus is now active (running) ✅
+
+
+
+
+
+
 
 Types 
 =======
