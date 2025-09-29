@@ -48,8 +48,65 @@ c: mvn clean deploy
 
 
 
+==================================================================================================
+Create a Custom Maven Repository in Nexus
+✅ Step-by-step to create a hosted snapshot or release repo
+Log into Nexus UI
+
+In the left sidebar, click:
+Administration → Repositories
+Click the “Create repository” button (top-right).
+Choose:
+Recipe: maven2 (hosted)
+Fill in the form:
+---------------------------------------------------
+Click Create repository.
+🔧 Update your pom.xml to use the new repo:
+
+<distributionManagement>
+  <repository>
+    <id>custom-releases</id>
+    <url>http://<your-nexus-ip>:8081/repository/custom-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>custom-snapshots</id>
+    <url>http://<your-nexus-ip>:8081/repository/custom-snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>
+
+----------------------------------------------------------
+And update your settings.xml:
+<server>
+  <id>custom-releases</id>
+  <username>admin</username>
+  <password>your_password</password>
+</server>
+<server>
+  <id>custom-snapshots</id>
+  <username>admin</username>
+  <password>your_password</password>
+</server>
+-------------------------------------------------------
+
+Click the “Create repository” button (top-right).
+Here’s how to configure a hosted Maven release repository:
+
+Field	Value
+Name	                : custom-releases (or any unique name)
+Online	          : ✅ (checked)
+Recipe	          : maven2 (hosted)
+Version Policy	    : Release
+Layout Policy	    : Strict (recommended)
+Content-Disposition   :	Inline (default is fine)
+Blob Store	          : default (unless you’ve created a custom one)
+Deployment Policy	    : Allow Redeploy (or just Allow if you want to prevent overwriting)
 
 
+For a snapshot repository
+Same steps, but change:
+
+Name → custom-snapshots
+Version Policy → Snapshot
 
 
 ========================================================================================================
