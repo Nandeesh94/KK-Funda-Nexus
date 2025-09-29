@@ -30,12 +30,12 @@ Paste this content into the file:
 <settings>
   <servers>
     <server>
-      <id>nexus-releases</id>
+      <id>airtel-releases</id>
       <username>admin</username>
       <password>90199652</password>
     </server>
     <server>
-      <id>nexus-snapshots</id>
+      <id>airtel-snapshots</id>
       <username>admin</username>
       <password>90199652</password>
     </server>
