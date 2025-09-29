@@ -75,21 +75,7 @@ Click Create repository.
 </distributionManagement>
 
 ----------------------------------------------------------
-And update your settings.xml:
-<settings>
-  <servers>
-    <server>
-      <id>airtel-releases</id>
-      <username>admin</username> <!-- replace with your Nexus username -->
-      <password>90199652</password> <!-- replace with your Nexus password -->
-    </server>
-    <server>
-      <id>airtel-snapshots</id>
-      <username>admin</username>
-      <password>90199652</password>
-    </server>
-  </servers>
-</settings>
+
 
 -------------------------------------------------------
 
