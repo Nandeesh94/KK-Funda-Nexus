@@ -361,4 +361,15 @@ sudo lsof -i -P -n | grep 8085
 Access in browser
 http://<your-ec2-public-ip>:8085
 
+-----------------------------------------------------------------------------------------
+
+
+1.Common causes of Permission denied on ExecStart
+   (SELinux blocking execution Even though you set SELinux to Permissive earlier, double‑check):
+c: getenforce
+
+If it’s still Enforcing, temporarily disable:
+c:sudo setenforce 0
+c:sudo systemctl restart nexus
+
 
