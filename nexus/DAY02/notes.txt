@@ -21,8 +21,38 @@ NOTE: Each repository we have separate URL
 
 
 ===================================================================================================
+Step-by-step: Create settings.xml with your credentials
+Create the file:
+mkdir -p /root/.m2
+vi /root/.m2/settings.xml
+
+Paste this content into the file:
+<settings>
+  <servers>
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>90199652</password>
+    </server>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>admin</username>
+      <password>90199652</password>
+    </server>
+  </servers>
+</settings>
+
+Save and exit (:wq)
+🚀 Deploy again:
+c: mvn clean deploy
 
 
+
+
+
+
+
+========================================================================================================
 
 
 
