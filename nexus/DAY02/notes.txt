@@ -65,34 +65,41 @@ Click Create repository.
 
 <distributionManagement>
   <repository>
-    <id>custom-releases</id>
-    <url>http://<your-nexus-ip>:8081/repository/custom-releases/</url>
+    <id>airtel-releases</id>
+    <url>http://<your-nexus-ip>:8081/repository/airtel-releases/</url>
   </repository>
   <snapshotRepository>
-    <id>custom-snapshots</id>
-    <url>http://<your-nexus-ip>:8081/repository/custom-snapshots/</url>
+    <id>airtel-snapshots</id>
+    <url>http://<your-nexus-ip>:8081/repository/airtel-snapshots/</url>
   </snapshotRepository>
 </distributionManagement>
 
 ----------------------------------------------------------
 And update your settings.xml:
-<server>
-  <id>custom-releases</id>
-  <username>admin</username>
-  <password>your_password</password>
-</server>
-<server>
-  <id>custom-snapshots</id>
-  <username>admin</username>
-  <password>your_password</password>
-</server>
+<settings>
+  <servers>
+    <server>
+      <id>airtel-releases</id>
+      <username>admin</username> <!-- replace with your Nexus username -->
+      <password>90199652</password> <!-- replace with your Nexus password -->
+    </server>
+    <server>
+      <id>airtel-snapshots</id>
+      <username>admin</username>
+      <password>90199652</password>
+    </server>
+  </servers>
+</settings>
+
 -------------------------------------------------------
 
 Click the “Create repository” button (top-right).
 Here’s how to configure a hosted Maven release repository:
+   
+Releases Repository creations:
 
 Field	Value
-Name	                : custom-releases (or any unique name)
+Name	                : airtel-releases (or any unique name)
 Online	          : ✅ (checked)
 Recipe	          : maven2 (hosted)
 Version Policy	    : Release
@@ -102,11 +109,19 @@ Blob Store	          : default (unless you’ve created a custom one)
 Deployment Policy	    : Allow Redeploy (or just Allow if you want to prevent overwriting)
 
 
-For a snapshot repository
+Snapshot repository creations:
+
+Field	Value
+Name	                : airtel-snapshots
+Online	          : ✅ (checked)
+Recipe	          : maven2 (hosted)
+Version Policy	    : Snapshot
+Layout Policy	    : Strict (recommended)
+Content-Disposition   :	Inline (default is fine)
+Blob Store	          : default (unless you’ve created a custom one)
+Deployment Policy	    : Allow Redeploy (or just Allow if you want to prevent overwriting)
 Same steps, but change:
 
-Name → custom-snapshots
-Version Policy → Snapshot
 
 
 ========================================================================================================
