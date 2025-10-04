@@ -31,6 +31,8 @@ Introduction
 
 3.Reduced heap size in nexus.vmoptions to fit your t2.medium ✅
 Recommended nexus.vmoptions for t2.medium (4 GB RAM)
+
+
 Edit /opt/nexus/bin/nexus.vmoptions and change the first two lines to:
 if we have 4Gb Ram: update below confg
 -Xms1024m
@@ -189,7 +191,12 @@ chmod -R 775 /opt/sonatype-work
 step 14: Open /opt/nexus/bin/nexus.rc file and  uncomment run_as_user parameter and set as nexus user.
 
 vi /opt/nexus/bin/nexus.rc
+export JAVA_HOME=/opt/java17
+export PATH=$JAVA_HOME/bin:$PATH
+
 run_as_user="nexus"
+
+
 
 #step 15: Create nexus as a service
 
